@@ -1,0 +1,16 @@
+# to get a token, run this with the following variables:
+# {
+#   "auth": {
+#     "email":"master@code.com",
+#     "password":"password",
+#     "role":"ADMIN"
+#   }
+# }
+mutation Signup($auth: SignupInput!) {
+  signup(input: $auth) {
+    token
+    user {
+      id
+    }
+  }
+}

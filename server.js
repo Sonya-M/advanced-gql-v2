@@ -47,7 +47,7 @@ const resolvers = {
   },
 
   Mutation: {
-    settings(_, { input }) {
+    settings(_, { input }, context) {
       return input;
     }
   },
@@ -68,7 +68,12 @@ const resolvers = {
 
 const server = new ApolloServer({
   typeDefs,
-  resolvers
+  resolvers,
+  context() {
+    return {
+      // e.g. jwt 
+    }
+  }
 })
 
 server.listen().then(({ url }) => {
